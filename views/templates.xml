@@ -1,0 +1,16 @@
+<odoo>
+    <data>
+        <template id="main" name="Main Owl Page" inherit_id="web.frontend_layout" primary="True">
+            <xpath expr="//html" position="attributes">
+                <attribute name="lang"><t t-esc='lang'/></attribute>
+            </xpath>
+            <xpath expr="//head/t[@t-call-assets][last()]" position="after">
+                <t t-call-assets="owl_page.script" t-css="false" defer_load="True"/>
+            </xpath>
+            <xpath expr="//t[@t-call-assets='web.assets_frontend']" position="replace">
+                <t t-call-assets="owl_page.style" t-js="false"/>
+            </xpath>
+            <xpath expr="//div[@id='wrapwrap']" position="replace"/>
+        </template>
+    </data>
+</odoo>

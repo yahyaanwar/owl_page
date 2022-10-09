@@ -1,0 +1,30 @@
+body {
+    background: yellow;
+}
+
+@mixin animation-fade($time, $name) {
+  .#{$name}_fade-enter-active {
+    transition: all $time;
+  }
+  .#{$name}_fade-enter {
+    opacity: 0;
+    margin-top: -100px;
+  }
+  .#{$name}_fade-enter-to {
+    opacity: 1;
+    margin-top: 0px;
+  }
+  .#{$name}_fade-leave-active {
+    transition: all $time;
+  }
+  .#{$name}_fade-leave {
+    opacity: 1;
+    margin-top: 0px;
+  }
+  .#{$name}_fade-leave-to {
+    opacity: 0;
+    margin-top: 100px;
+  }
+}
+
+@include animation-fade(.3s, "o_main");

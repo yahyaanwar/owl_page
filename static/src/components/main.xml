@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template">
+    <t t-name="owl_page.Main" owl="1">
+        <div class="container-fluid py-2 pb-md-3 text-right pr-lg-5" t-transition="o_main_fade">
+            <h1>Page 1</h1>
+            <p>Hello <t t-esc="state.user_name"/></p>
+            <Link to="'SUB'" class="btn btn-primary mr-3">Goto Page 2</Link>
+            <button class="btn btn-secondary" t-on-click="dispatch('toggleCanNavigate')">
+                <t t-if="getters.getCanNavigate()">
+                    <i class="fa fa-unlock"></i>
+                </t>
+                <t t-else="">
+                    <i class="fa fa-lock"></i>
+                </t>
+            </button>
+        </div>
+    </t>
+    <t t-name="owl_page.Sub" owl="1">
+        <div class="container-fluid py-2 pb-md-3 text-right pr-lg-5" t-transition="o_main_fade">
+            <h1>Page 2</h1>
+            <button class="btn btn-primary mr-3" t-on-click="gotoMain()">Goto Page 1</button>
+            <button class="btn btn-secondary" t-on-click="dispatch('toggleCanNavigate')">
+                <t t-if="getters.getCanNavigate()">
+                    <i class="fa fa-unlock"></i>
+                </t>
+                <t t-else="">
+                    <i class="fa fa-lock"></i>
+                </t>
+            </button>
+        </div>
+    </t>
+    <t t-name="owl_page.App">
+        <div class="o_configurator_container">
+            <RouteComponent />
+        </div>
+    </t>
+</templates>
